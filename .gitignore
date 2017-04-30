@@ -1,0 +1,17 @@
+wp-admin/
+wp-includes/
+wp-content/index.php
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/wp-cache-config.php
+wp-content/plugins/
+wp-content/themes/twentyfifteen/
+wp-content/themes/twentyfourteen/
+wp-content/themes/twentysixteen/
+wp-content/themes/blackandwhite/
+/*.php
+*.sln
+*.phpproj
+/license.txt
+/readme.html
+/web.config
