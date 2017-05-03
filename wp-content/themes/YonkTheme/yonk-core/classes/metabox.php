@@ -155,8 +155,10 @@ class Yonk_Metabox extends Yonk_Base {
             $value = $_POST[$control_id];
 
             if (!isset($value)) {
-                Yonk_Frontend::save_meta($field->id, '0', $post);
-            } else if ($field->type === 'checkbox') {
+                if ($field->type === 'checkbox') {
+                    Yonk_Frontend::save_meta($field->id, '0', $post);                
+                }
+            } else {
                 switch ($field->type) {
                     case 'email':
                         $value = sanitize_email($value);
