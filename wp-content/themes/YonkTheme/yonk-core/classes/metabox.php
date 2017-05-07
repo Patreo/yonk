@@ -12,6 +12,8 @@ defined('ABSPATH') or die('No script kiddies please!');
 
 class Yonk_Metabox extends Yonk_Base {
 
+    private $fields = array();
+    
     private $default = array(
         'name' => '',
         'title' => '',
@@ -20,9 +22,7 @@ class Yonk_Metabox extends Yonk_Base {
         'priority' => 'default',
         'template' => '',
         'post_type' => array('post'),
-    );
-
-    private $fields = array();
+    );    
 
     /**
      * Constructor function for class Yonk_Metabox

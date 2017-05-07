@@ -3,27 +3,29 @@ defined('ABSPATH') or die('No script kiddies please!');
 define('YONK_PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 define('YONK_URL', get_template_directory_uri() . '/yonk-core/');
 
-/**
- * Auto load for Yonk core framework
- *
- * @param $class_name
- * @param $base_path
- */
-function Yonk_autoload($class_name, $base_path = '')
-{
-    $filename = str_replace('_', DIRECTORY_SEPARATOR, strtolower($class_name)) . '.php';
+if (!function_exists('Yonk_autoload')) {
+    /**
+     * Auto load for Yonk core framework
+     *
+     * @param string $class_name
+     * @param string $base_path
+     * @return void
+     */
+    function Yonk_autoload($class_name, $base_path = '') {
+        $filename = str_replace('_', DIRECTORY_SEPARATOR, strtolower($class_name)) . '.php';
 
-    if (strlen($base_path) == 0) {
-        $file = YONK_PATH . $filename;
-    } else {
-        $file = $base_path . DIRECTORY_SEPARATOR .  $filename;
+        if (strlen($base_path) == 0) {
+            $file = YONK_PATH . $filename;
+        } else {
+            $file = $base_path . DIRECTORY_SEPARATOR .  $filename;
+        }
+
+        if (!file_exists($file)) {
+            return FALSE;
+        }
+
+        include $file;
     }
-
-    if (!file_exists($file)) {
-        return FALSE;
-    }
-
-    include $file;
 }
 
 Yonk_autoload('classes_interfaces_ifield');
@@ -52,3 +54,4 @@ Yonk_autoload('helpers_admin');
 Yonk_autoload('plugins_admin');
 Yonk_autoload('plugins_optimize');
 Yonk_autoload('helpers_register');
+Yonk_autoload('functions');

@@ -56,11 +56,12 @@ class Yonk_Frontend {
 	}
 
     /**
-     * Get attachments associated with a post ID
-     *
-     * @param null $post
-     * @return array
-     */
+	 * Get all attachments associated with 
+	 * Post ID
+	 *
+	 * @param null $post
+	 * @return array
+	 */
 	function get_attachments($post = NULL) {
 		if (!isset($post)) {
 			global $post;
@@ -80,15 +81,19 @@ class Yonk_Frontend {
 	}
 
 	/**
-	 * Get related posts about same topics of loaded post
+	 * Get related posts linked with same topics 
+	 * of loaded post
 	 *
 	 * @param int $qty
 	 */
-	function get_related_posts($qty = 4) {
-		global $post;
-		$tags = wp_get_post_tags($post->ID);
+	function get_related_posts($qty = 4, $post = NULL) {
+		if (!isset($post)) {
+			global $post;
+		}
 
+		$tags = wp_get_post_tags($post->ID);
 		$tag_id = array();
+
 		foreach ($tags as $tag) {
 			$tag_id[] = $tag->term_id;
 		}

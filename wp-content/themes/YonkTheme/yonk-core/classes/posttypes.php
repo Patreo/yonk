@@ -9,7 +9,8 @@ defined('ABSPATH') or die('No script kiddies please!');
  * @author Pedro Fernandes
  * @link http://www.pfernandes.pt
  */
-class Yonk_Post_Type extends Yonk_Base {
+class Yonk_Post_Type extends Yonk_Base
+{
 
     private $post_type = '';
 
@@ -18,18 +19,21 @@ class Yonk_Post_Type extends Yonk_Base {
      *
      * @param $options
      */
-    public function  __construct($post_type, $options = array()) {
+    public function __construct($post_type, $options = array())
+    {
         parent::__construct($options);
         $this->post_type = $post_type;
         $this->set_arguments();
 
         add_action('init', array(&$this, 'register_post_type'));
+        add_action('admin_head', array(&$this, 'help'));
     }
 
     /**
      * Register custom post type in WordPress init action
      */
-    public function register_post_type() {
+    public function register_post_type()
+    {
         register_post_type($this->post_type, $this->get_options());
     }
 
@@ -38,7 +42,8 @@ class Yonk_Post_Type extends Yonk_Base {
      *
      * @return array
      */
-    private function set_arguments() {
+    private function set_arguments()
+    {
         $args = array(
             'labels' => $this->labels($this->get_option('name')),
             'supports' => array('title', 'editor', 'thumbnail'),
@@ -67,7 +72,8 @@ class Yonk_Post_Type extends Yonk_Base {
      *
      * @return array
      */
-    private function labels($name) {
+    private function labels($name)
+    {
         $plurals = Yonk_Util::pluralize(2, $name);
 
         $labels = array(
@@ -99,7 +105,8 @@ class Yonk_Post_Type extends Yonk_Base {
      * @param $options
      * @return Yonk_Taxonomy
      */
-    public function add_taxonomy($taxonomy, $options) {
+    public function add_taxonomy($taxonomy, $options)
+    {
         $default = array(
             'post_type' => array($this->post_type)
         );
@@ -115,7 +122,8 @@ class Yonk_Post_Type extends Yonk_Base {
      * @param $options
      * @return Yonk_Post_Status
      */
-    public function add_post_status($post_status, $options) {
+    public function add_post_status($post_status, $options)
+    {
         $default = array(
             'post_type' => array($this->post_type)
         );
@@ -131,7 +139,8 @@ class Yonk_Post_Type extends Yonk_Base {
      * @param $options
      * @return Yonk_Metabox
      */
-    public function create_metabox($name, $options) {
+    public function create_metabox($name, $options)
+    {
         $default = array(
             'name' => $name,
             'post_type' => array($this->post_type)
@@ -139,5 +148,28 @@ class Yonk_Post_Type extends Yonk_Base {
 
         $metabox = new Yonk_Metabox(array_merge($default, $options));
         return $metabox;
+    }
+
+    /**
+     * Create Help screen
+     *
+     * @param array $tabs
+     * @return void
+     */
+    public function help($tabs = array(array('id' => '', 'title' => '', 'content' => '')))
+    {
+        $screen = get_current_screen();
+
+        if ($this->post_type != $screen->post_type) {
+            return;
+        }
+
+        if (!isset($tabs) || $tabs == NULL) {
+            return;
+        }
+            
+        foreach ($tabs as $tab) {   
+            $screen->add_help_tab($tab);
+        }
     }
 }
