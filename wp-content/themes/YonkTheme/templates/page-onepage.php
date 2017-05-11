@@ -17,10 +17,13 @@
 
 	if ($query->have_posts()): 
 		while($query->have_posts()): $query->the_post();
-			$page = get_post(get_the_ID()); ?>
-        <article id="page-<?php echo $page->post_name; ?>" <?php post_class(); ?>>
-            <?php get_template_part('page', $page->post_name); ?>
+			$page = get_post(get_the_ID());
+			$slug = $page->post_name; ?>
+		<?php do_action('Yonk_page_before', $slug); ?>
+        <article id="page-<?php echo $slug; ?>" <?php post_class(); ?>>
+            <?php get_template_part('page', $slug); ?>
         </article>
+		<?php do_action('Yonk_page_after', $slug); ?>
         <?php 			
 		endwhile;
 	endif;

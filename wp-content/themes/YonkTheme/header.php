@@ -7,8 +7,10 @@
 		<?php wp_head(); ?>
 	</head>
 <body <?php body_class(); ?>>
+    <?php do_action('Yonk_body_start'); ?>
     <div id="wrappper" class="container-fluid">
         <div class="container">
+            <?php do_action('Yonk_header_before'); ?>
             <header id="header">
                 <div class="row">
                     <div class="col-xs-12 col-sm-5 col-md-3 col-lg-3">
@@ -21,5 +23,7 @@
                     </div>
                 </div>
             </header>
+            <?php do_action('Yonk_header_after'); ?>
+            <?php do_action('Yonk_content_before'); ?>
             <div class="row content">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
