@@ -1,3 +1,12 @@
+<?php
+/**
+ * The template for displaying search forms in NARGA
+ * 
+ * @package WordPress
+ * @subpackage YonkTheme
+ * @since 1.0
+ */
+?>
 <form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url(home_url('/')); ?>">
 	<div class="form-group">
 		<label for="s"><?php _e('Search:', 'blank'); ?></label>

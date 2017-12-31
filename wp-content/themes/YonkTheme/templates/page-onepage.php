@@ -20,9 +20,9 @@
 			$page = get_post(get_the_ID());
 			$slug = $page->post_name; ?>
 		<?php do_action('Yonk_page_before', $slug); ?>
-        <article id="page-<?php echo $slug; ?>" <?php post_class(); ?>>
+        <section id="page-<?php echo $slug; ?>" <?php post_class(); ?> role="section">
             <?php get_template_part('page', $slug); ?>
-        </article>
+        </section>
 		<?php do_action('Yonk_page_after', $slug); ?>
         <?php 			
 		endwhile;

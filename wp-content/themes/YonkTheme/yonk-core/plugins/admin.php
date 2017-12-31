@@ -4,14 +4,49 @@ defined('ABSPATH') or die('No script kiddies please!');
 /**
  * Custom admin scripts.
  * Hook into the 'admin_enqueue_scripts' action
- * Hook into the 'login_enqueue_scripts' action
+ * 
  */
 function Yonk_admin_scripts() {
-    wp_enqueue_style('yonk-admin', YONK_URL . 'assets/css/custom-admin.css');
+    wp_enqueue_style('yonk-admin-css', YONK_URL . 'assets/css/custom-admin.css');
 }
 
 add_action('admin_enqueue_scripts', 'Yonk_admin_scripts');
-add_action('login_enqueue_scripts', 'Yonk_admin_scripts');
+
+/**
+ * Custom login scripts
+ * Hook into the 'login_enqueue_scripts' action
+ * 
+ * @return void
+ */
+function Yonk_login_css() {
+	wp_enqueue_style('yonk-login-css', YONK_URL . 'assets/css/custom-login.css', false);
+}
+
+add_action('login_enqueue_scripts', 'Yonk_login_css', 10);
+
+/**
+ * Custom login url
+ * Hook into the 'login_headerurl' action
+ *
+ * @return void
+ */
+function Yonk_login_url() {  
+    return home_url(); 
+}
+
+add_filter('login_headerurl', 'Yonk_login_url');
+
+/**
+ * Custom login title
+ * Hook into the 'Yonk_login_title' action
+ *
+ * @return void
+ */
+function Yonk_login_title() { 
+    return get_option('blogname'); 
+}
+
+add_filter('login_headertitle', 'Yonk_login_title');
 
 /**
  * Remove WordPress logo from admin bar
@@ -29,8 +64,8 @@ add_action('wp_before_admin_bar_render', 'Yonk_adminbar_remove_logo');
  * Hook into the 'admin_footer_text' action
  */
 function Yonk_change_admin_footer() {
-    $theme =  wp_get_theme();
-    echo 'Fueled by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | Designed by <a href="' . $theme->get('ThemeURI') . '" target="_blank">' . $theme->get('Template') .'</a></p>';
+    $theme = wp_get_theme();
+    echo 'Fueled by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | Powered by <a href="' . $theme->get('ThemeURI') . '" target="_blank">' . $theme->get('Name') . '</a></p>';
 }
 
 add_filter('admin_footer_text', 'Yonk_change_admin_footer');
@@ -46,12 +81,16 @@ remove_action('welcome_panel', 'wp_welcome_panel');
  * Hook into the 'admin_init' action
  */
 function Yonk_remove_dashboard_widgets() {
-    remove_meta_box('yoast_db_widget', 'dashboard', 'normal');
     remove_meta_box('dashboard_recent_drafts', 'dashboard', 'side');
     remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
     remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal');
     remove_meta_box('dashboard_primary', 'dashboard', 'normal');
     remove_meta_box('dashboard_secondary', 'dashboard', 'normal');
+    remove_meta_box('dashboard_plugins', 'dashboard', 'normal');
+    remove_meta_box('dashboard_activity', 'dashboard', 'normal');
+    remove_meta_box('yoast_db_widget', 'dashboard', 'normal');
+    remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');
+    remove_meta_box('bbp-dashboard-right-now', 'dashboard', 'normal');   
 }
 
 add_action('admin_init', 'Yonk_remove_dashboard_widgets');

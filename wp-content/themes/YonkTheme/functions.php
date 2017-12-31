@@ -79,14 +79,27 @@ function Yonk_register_styles() {
 
 add_action('wp_enqueue_scripts', 'Yonk_register_styles', 0);
 
+/**
+ * Add new features to customizer
+ * Hook into the 'customize_register' action
+ * 
+ * @param [type] $wp_customize
+ * @return void
+ */
+function Yonk_theme_customizer($wp_customize) {
+
+}
+  
+add_action('customize_register', 'Yonk_theme_customizer');
 
 /**
  * Register Controllers for MVC usage
  * Hook into the 'after_setup_theme' action
  */
 function Yonk_after_setup_theme() {
-    global $config;
+	load_theme_textdomain('blank', get_template_directory() . '/languages');
 
+    global $config;
 	$config['base_url'] = 'app/';
 
 	// Default controller to load

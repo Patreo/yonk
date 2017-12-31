@@ -1,4 +1,4 @@
-<article id="page_not_found">
+<article id="page_not_found" role="article">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <header class="page-header">

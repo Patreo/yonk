@@ -6,7 +6,10 @@ function display_posts_func($atts) {
         'category'   => ''
     ), $atts);
 
-	Yonk_Frontend::query('post', array('category_name' => $a['category'], 'orderby' => 'date', 'order' => 'DESC'), function() {
+	Yonk_Frontend::query('post', array(
+		'category_name' => $a['category'], 
+		'orderby' => 'date', 
+		'order' => 'DESC'), function() {
 ?>
 
 	<div class="row">

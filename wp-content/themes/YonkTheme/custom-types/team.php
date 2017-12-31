@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') or die('No script kiddies please!');
 
 $team = new Yonk_Post_Type('team', array(
     'name'          => 'Team',

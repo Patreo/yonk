@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') or die('No script kiddies please!');
 
 $testimonials = new Yonk_Post_Type('testimonial', array(
     'name' => 'Testimonial',
@@ -13,8 +14,4 @@ $meta = new Yonk_Metabox(array(
     'post_type' => array('testimonial')
 ));
 
-$meta->add_field(array(
-    'id' => 'cargo',
-    'label' => 'Cargo',
-    'type' => 'text',    
-));
+$meta->add_field(array('id' => 'cargo', 'label' => 'Cargo', 'type' => 'text'));

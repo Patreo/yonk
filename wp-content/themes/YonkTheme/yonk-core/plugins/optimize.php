@@ -61,13 +61,22 @@ function Yonk_theme_features() {
     // Add theme support for HTML5 Semantic Markup
     add_theme_support('automatic-feed-links');
     add_theme_support('title-tag');
-    add_theme_support('html5', array('search-form', 'gallery', 'caption'));
-    add_theme_support('post-formats', array('video'));
+    add_theme_support('menus');
+    add_theme_support('html5', array('search-form', 'gallery', 'caption', 'comment-list', 'comment-form'));
+    add_theme_support('post-formats', array('aside', 'audio', 'chat', 'gallery', 'link', 'image', 'quote', 'status', 'video'));
+    add_theme_support('custom-background',  array(
+        'default-image' => '',    
+        'default-color' => '',    
+        'wp-head-callback' => '_custom_background_cb',
+        'admin-head-callback' => '',
+        'admin-preview-callback' => ''
+    ));
     add_theme_support('post-thumbnails', array('post'));
+    set_post_thumbnail_size(125, 125, true);
     add_editor_style();
 }
 
-add_action('after_setup_theme', 'Yonk_theme_features');
+add_action('after_setup_theme', 'Yonk_theme_features', 10);
 
 /**
  * Sanitize filename on Upload to remove spaces or acents

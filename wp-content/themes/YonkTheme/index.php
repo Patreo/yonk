@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <!-- Customize this page like you want -->
 <div class="row">
-    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 content">
         <div id="category-results">
 		    <?php
 		    if (have_posts()):
@@ -16,7 +16,7 @@
 		    ?>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 sidebar">
         <section id="sidebar">
             <?php get_sidebar('home'); ?>
         </section>
