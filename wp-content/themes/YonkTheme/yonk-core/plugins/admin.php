@@ -65,7 +65,7 @@ add_action('wp_before_admin_bar_render', 'Yonk_adminbar_remove_logo');
  */
 function Yonk_change_admin_footer() {
     $theme = wp_get_theme();
-    echo 'Fueled by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | Powered by <a href="' . $theme->get('ThemeURI') . '" target="_blank">' . $theme->get('Name') . '</a></p>';
+    echo 'Fueled by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | Powered by <a href="' . $theme->get('ThemeURI') . '" target="_blank">' . $theme->get('Author') . '</a></p>';
 }
 
 add_filter('admin_footer_text', 'Yonk_change_admin_footer');
