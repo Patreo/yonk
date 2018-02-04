@@ -95,7 +95,7 @@ class Yonk_Nav_Menu extends Walker_Nav_Menu {
 			if (!empty($item->attr_title))
 				$item_output .= '<a' . $attributes . '><span class="glyphicon ' . esc_attr($item->attr_title) . '"></span>&nbsp;';
 			else
-				$item_output .= '<a' . $attributes . '>';
+				$item_output .= '<a' . $attributes . ' data-toggle="tooltip" data-placement="bottom">';
 			$item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
 			$item_output .= '</a>';
 			$item_output .= $args->after;

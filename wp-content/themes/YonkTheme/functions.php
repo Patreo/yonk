@@ -80,6 +80,31 @@ function Yonk_register_styles() {
 add_action('wp_enqueue_scripts', 'Yonk_register_styles', 0);
 
 /**
+ * Call template for category specified single
+ * Hook into the 'single_template' action
+ *
+ * @param [type] $t
+ * @return void
+ */
+function Yonk_single_category_template($t) {
+    foreach ((array) get_the_category() as $cat) {
+        if ($cat->category_parent == 0) {
+            $cat_id = $cat->cat_ID;
+        } else {
+            $cat_id = $cat->category_parent;
+        }
+
+        if (file_exists(get_template_directory() . "/single-cat-{$cat_id}.php"))  {
+            return get_template_directory() . "/single-cat-{$cat_id}.php"; 
+        }
+    }
+
+    return $t;
+}
+
+add_filter('single_template', 'Yonk_single_category_template');
+
+/**
  * Add new features to customizer
  * Hook into the 'customize_register' action
  * 
