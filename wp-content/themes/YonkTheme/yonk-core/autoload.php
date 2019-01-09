@@ -57,3 +57,5 @@ Yonk_autoload('plugins_admin');
 Yonk_autoload('plugins_optimize');
 Yonk_autoload('plugins_pagenavi');
 Yonk_autoload('functions');
+
+do_action('Yonk_loaded'); 
