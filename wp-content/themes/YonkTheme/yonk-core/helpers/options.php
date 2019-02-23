@@ -15,8 +15,7 @@ function Yonk_get_option($name, $default = false) {
     // Return the option if it exists
     if (isset($options[$name])) {
         return apply_filters('Yonk_option_$name', $options[$name]);
-    }
-
-    // Return default if nothing else
-    return apply_filters('Yonk_option_$name', $default);
+    } else {
+        return apply_filters('Yonk_option_$name', $default);
+    }    
 }

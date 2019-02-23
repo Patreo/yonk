@@ -29,5 +29,4 @@ class Yonk_Model
     public function query($qry) {
         return $this->connection->get_results($qry, ARRAY_A);
     }
-
 }

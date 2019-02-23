@@ -3,8 +3,7 @@
 
     wp_register_script('googlemaps', 'http://maps.googleapis.com/maps/api/js?pt_PT&libraries=places&key=' . GOOGLE_MAPS_V3_API_KEY . '&sensor=false', false, '3');
     wp_register_script('geocoding', YONK_URL . 'assets/js/gmap.geocode.js', array('googlemaps'), '1.0', false);
-    wp_enqueue_script('googlemaps');
-    wp_enqueue_script('geocoding');
+    wp_enqueue_script(array('googlemaps', 'geocoding'));
 
     if (isset($value)) {
         $decoded = json_decode($value);

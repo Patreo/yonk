@@ -1,6 +1,8 @@
 <?php
 
 require_once(dirname(__FILE__) . '/yonk-core/autoload.php');
+require_once(dirname(__FILE__) . '/custom-types/team.php');
+require_once(dirname(__FILE__) . '/custom-types/testimonials.php');
 
 /**
  * Register two navigation menus, cam register more,
@@ -42,6 +44,24 @@ function Yonk_register_siderbar() {
 	register_sidebar(array(
 		'name' => __('Page Sidebar', 'blank'),
 		'id' => 'page',
+		'before_widget' => '<aside id="%1$s" class="panel widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h5>',
+		'after_title'   => '</h5>',
+	));
+
+	register_sidebar(array(
+		'name' => __('Search Sidebar', 'blank'),
+		'id' => 'search',
+		'before_widget' => '<aside id="%1$s" class="panel widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h5>',
+		'after_title'   => '</h5>',
+	));
+
+	register_sidebar(array(
+		'name' => __('Category Sidebar', 'blank'),
+		'id' => 'category',
 		'before_widget' => '<aside id="%1$s" class="panel widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h5>',

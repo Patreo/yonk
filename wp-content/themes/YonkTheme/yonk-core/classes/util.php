@@ -56,7 +56,21 @@ class Yonk_Util {
         }
         ob_start();
         include $file;
-
         return ob_get_clean();
+    }
+
+    /**
+     * Load template part from wordpress
+     *
+     * @param [type] $template_name
+     * @param [type] $part_name
+     * @return void
+     */
+    public static function loadTemplatePart($template_name, $part_name = NULL) {
+        ob_start();
+        get_template_part($template_name, $part_name);
+        $var = ob_get_contents();
+        ob_end_clean();
+        return $var;
     }
 }
