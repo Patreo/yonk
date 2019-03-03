@@ -11,7 +11,7 @@ get_header(); ?>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <header class="page-header">
-                <h1><?php _e('Not Found', 'blank'); ?></h1>
+                <h1><?php _e('Page not found', 'blank'); ?></h1>
             </header>
             <h3><?php _e('This is somewhat embarrassing, isn\'t it?', 'blank'); ?></h3>
             <p><?php _e('It looks like nothing was found at this location. Maybe try a search?', 'blank'); ?></p>
