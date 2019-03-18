@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-5 col-md-3 col-lg-3">
                         <a href="<?php echo bloginfo('siteurl') ?>">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" class="logo" alt="..." />
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" class="logo" alt="..." />
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-7 col-md-9 col-lg-9 text-right">

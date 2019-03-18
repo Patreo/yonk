@@ -50,6 +50,7 @@ Yonk_autoload('classes_posttypes');
 Yonk_autoload('classes_options');
 Yonk_autoload('classes_page');
 Yonk_autoload('helpers_queries');
+Yonk_autoload('helpers_frontend');
 Yonk_autoload('helpers_admin');
 Yonk_autoload('helpers_options');
 Yonk_autoload('helpers_register');
