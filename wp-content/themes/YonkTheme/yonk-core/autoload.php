@@ -37,6 +37,7 @@ Yonk_autoload('classes_template');
 Yonk_autoload('classes_template.cache');
 Yonk_autoload('classes_controller');
 Yonk_autoload('classes_base');
+Yonk_autoload('classes_db');
 Yonk_autoload('classes_util');
 Yonk_autoload('classes_navmenu');
 Yonk_autoload('classes_frontend');
