@@ -168,3 +168,68 @@ function Yonk_after_setup_theme() {
 }
 
 add_action('after_setup_theme', 'Yonk_after_setup_theme');
+
+/**
+ * Add Gutenberg support for theme
+ *
+ * @return void
+ */
+function Yonk_add_gutenberg_support() {
+	// -- Disable Custom Colors
+    add_theme_support('disable-custom-colors');
+
+    // -- Editor Color Palette
+    add_theme_support('editor-color-palette', array(
+        array(
+            'name'  => __('Blue', 'blank_theme'),
+            'slug'  => 'blue',
+            'color'	=> '#59BACC',
+        ),
+        array(
+            'name'  => __('Green', 'blank_theme'),
+            'slug'  => 'green',
+            'color' => '#58AD69',
+		),
+		array(
+			'name'  => __('Orange', 'blank_theme'),
+			'slug'  => 'orange',
+			'color' => '#FFBC49',
+		),
+		array(
+			'name'	=> __('Red', 'blank_theme'),
+			'slug'	=> 'red',
+			'color'	=> '#E2574C',
+		),
+    ));
+
+    
+    add_theme_support('align-wide');
+
+    // -- Disable custom font sizes
+    add_theme_support('disable-custom-font-sizes');
+
+    // -- Editor Font Sizes
+    add_theme_support('editor-font-sizes', array(
+        array(
+            'name'      => __('small', 'blank_theme'),
+            'shortName' => __('S', 'blank_theme'),
+            'size'      => 12,
+            'slug'      => 'small'
+        ),
+        array(
+            'name'      => __('regular', 'blank_theme'),
+            'shortName' => __('M', 'blank_theme'),
+            'size'      => 16,
+            'slug'      => 'regular'
+        ),
+        array(
+            'name'      => __('large', 'blank_theme'),
+            'shortName' => __('L', 'blank_theme'),
+            'size'      => 20,
+            'slug'      => 'large'
+        ),
+    ));
+}
+
+
+add_action('after_setup_theme', 'Yonk_add_gutenberg_support', 10);
