@@ -1,6 +1,6 @@
 <?php
 defined('ABSPATH') or die('No script kiddies please!');
-parse_str($_SERVER['QUERY_STRING']);
+parse_str($_SERVER['QUERY_STRING'], $output);
 
 /**
  * Class Yonk_Application
