@@ -1,7 +1,7 @@
 <?php defined('ABSPATH') or die('No script kiddies please!'); ?>
 
 <tr>
-    <th scope="row" style="width:25%">
+    <th scope="row">
         <label for="<?php echo $name ?>"><?php echo $label ?></label>
     </th>
     <td>

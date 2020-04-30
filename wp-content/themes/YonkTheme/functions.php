@@ -144,7 +144,7 @@ add_action('customize_register', 'Yonk_theme_customizer');
 function Yonk_after_setup_theme() {
 	load_theme_textdomain('blank', get_template_directory() . '/languages');
 
-    global $config;
+	global $config;
 	$config['base_url'] = 'app/';
 
 	// Default controller to load

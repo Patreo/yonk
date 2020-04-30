@@ -7,11 +7,27 @@ $testimonials = new Yonk_Post_Type('testimonial', array(
     'taxonomies' => array()
 ));
 
-$meta = new Yonk_Metabox(array(
-    'name' => 'testimonial-meta',
-    'title' => 'Cargo',
-    'context' => 'side',
-    'post_type' => array('testimonial')
-));
 
-$meta->add_field(array('id' => 'cargo', 'label' => 'Cargo', 'type' => 'text'));
+add_action('cmb2_admin_init', 'testimonial_metabox');
+
+/**
+ * Hook in and register a metabox for the admin comment edit page.
+ */
+function testimonial_metabox() {
+
+    /**
+     * Sample metabox to demonstrate each field type included
+     */
+    $cmb = new_cmb2_box( array(
+        'id'            => 'testimonial_metabox',
+        'title'         => __('Cargo'),
+        'context'       => 'side',
+        'priority'      => 'low',
+        'object_types'  => array('testimonial')
+    ));
+
+    $cmb->add_field( array(
+        'id'   => 'cargo',
+        'type' => 'text_medium'
+    ));
+}

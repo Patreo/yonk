@@ -4,8 +4,9 @@
 
 wp-admin/
 wp-includes/
-wp-content/
+
+wp-content/**/*
 wp-content/themes/YonkTheme-child/app/
 
+!wp-content/themes/YonkTheme
 !wp-content/themes/YonkTheme-child
-

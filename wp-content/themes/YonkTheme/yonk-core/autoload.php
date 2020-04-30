@@ -1,7 +1,14 @@
 <?php
 defined('ABSPATH') or die('No script kiddies please!');
 define('YONK_PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
-define('YONK_URL', get_template_directory_uri() . '/yonk-core/');
+define('YONK_URL', get_template_directory_uri() . '//yonk-core//');
+
+if (file_exists(dirname(__FILE__) . '/lib/cmb2/init.php')) {
+    define('CMB2', TRUE);
+    require_once dirname(__FILE__) . '/lib/cmb2/init.php';
+} else {
+    define('CMB2', FALSE);
+}
 
 if (!function_exists('Yonk_autoload')) {
     /**

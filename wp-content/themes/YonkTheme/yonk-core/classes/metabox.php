@@ -106,9 +106,9 @@ class Yonk_Metabox extends Yonk_Base {
         if (strlen($template_name) == 0) {
             $this->print_generated_html($post);
         } else {
-            $ff = file_exists(YONK_PATH . 'templates/' . $template_name);
+            $templateFolderFounded = file_exists(YONK_PATH . 'templates/' . $template_name);
 
-            if ($ff == TRUE) {
+            if ($templateFolderFounded == TRUE) {
                 echo Yonk_Util::renderPhpToString(YONK_PATH . 'templates/' . $template_name, $this->get_options());
             } else {
                 echo Yonk_Util::renderPhpToString($template_name, $this->get_options());

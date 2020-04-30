@@ -63,7 +63,7 @@ function Yonk_theme_features() {
     add_theme_support('title-tag');
     add_theme_support('menus');
     add_theme_support('html5', array('search-form', 'gallery', 'caption', 'comment-list', 'comment-form'));
-    add_theme_support('post-formats', array('aside', 'audio', 'chat', 'gallery', 'link', 'image', 'quote', 'status', 'video'));
+    add_theme_support('post-formats', array('image', 'video', 'audio', 'quote', 'link', 'gallery'));
     add_theme_support('custom-background',  array(
         'default-image' => '',    
         'default-color' => '',    
@@ -73,7 +73,7 @@ function Yonk_theme_features() {
     ));
     add_theme_support('post-thumbnails', array('post'));
     set_post_thumbnail_size(125, 125, true);
-    add_editor_style();
+    add_editor_style(array('style.css'));
 }
 
 add_action('after_setup_theme', 'Yonk_theme_features', 10);

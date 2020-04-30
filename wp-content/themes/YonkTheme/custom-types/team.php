@@ -9,14 +9,57 @@ $team = new Yonk_Post_Type('team', array(
 ));
 
 
-$meta = new Yonk_Metabox(array(
-    'name' => 'team-meta',
-    'title' => 'Equipa',
-    'post_type' => array('team')
-));
+add_action('cmb2_admin_init', 'team_metabox');
 
-$meta->add_field(array('id' => 'cargo', 'label' => 'Cargo', 'type' => 'text' ));
-$meta->add_field(array('id' => 'facebook', 'label' => 'Facebook', 'type' => 'text' ));
-$meta->add_field(array('id' => 'instagram', 'label' => 'Instagram', 'type' => 'text' ));
-$meta->add_field(array('id' => 'linkedin', 'label' => 'LinkedIn', 'type' => 'text' ));
-$meta->add_field(array('id' => 'twitter', 'label' => 'Twitter', 'type' => 'text' ));
+/**
+ * Hook in and register a metabox for the admin comment edit page.
+ */
+function team_metabox() {
+
+    /**
+     * Sample metabox to demonstrate each field type included
+     */
+    $cmb = new_cmb2_box( array(
+        'id'           => 'team_metabox',
+        'title'        => __('Team'),
+        'object_types' => array('team'),
+    ));
+
+    $cmb->add_field( array(
+        'name' => 'Cargo',
+        'id'   => 'cargo',
+        'type' => 'text_medium'
+    ));
+
+    $cmb->add_field( array(
+        'name' => 'Facebook',
+        'id'   => 'facebook_url',
+        'type' => 'text_url',
+        'desc' => 'https://www.facebook.com/{username}',
+        'protocols' => array( 'http', 'https')
+    ));
+
+    $cmb->add_field( array(
+        'name' => 'Instagram',
+        'id'   => 'instagram_url',
+        'type' => 'text_url',
+        'desc' => 'https://www.instagram.com/{username}',
+        'protocols' => array( 'http', 'https')
+    ));
+
+    $cmb->add_field( array(
+        'name' => 'LinkedIn',
+        'id'   => 'linkedin_url',
+        'type' => 'text_url',
+        'desc' => 'https://www.linkedin.com/in/{username}',
+        'protocols' => array( 'http', 'https')
+    ));
+
+    $cmb->add_field( array(
+        'name' => 'Twitter',
+        'id'   => 'twitter_url',
+        'type' => 'text_url',
+        'desc' => 'https://www.twitter.com/{username}',
+        'protocols' => array( 'http', 'https')
+    ));
+}

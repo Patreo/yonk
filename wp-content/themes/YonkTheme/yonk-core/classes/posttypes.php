@@ -162,14 +162,14 @@ class Yonk_Post_Type extends Yonk_Base
 
         if ($this->post_type != $screen->post_type) {
             return;
-        }
-
-        if (!isset($tabs) || $tabs == NULL) {
-            return;
-        }
-            
-        foreach ($tabs as $tab) {   
-            $screen->add_help_tab($tab);
+        } else {
+            if (!isset($tabs) || $tabs == NULL) {
+                return;
+            } else {
+                foreach ($tabs as $tab) {   
+                    $screen->add_help_tab($tab);
+                }
+            }
         }
     }
 }
