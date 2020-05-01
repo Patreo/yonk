@@ -42,7 +42,7 @@ class Yonk_Metabox extends Yonk_Base {
      */
     public function add_meta_boxes() {
         if (!is_array($this->get_option('post_type'))) {
-            die('post_type must be an array.');
+            die('The post_type must be an array.');
         }
 
         foreach ($this->get_option('post_type') as $screen) {
@@ -50,6 +50,12 @@ class Yonk_Metabox extends Yonk_Base {
                 , array(&$this, 'add_meta_box_callback'), $screen, $this->get_option('context')
                 , $this->get_option('priority'));
         }
+            
+        if ($this->get_option('fields') != NULL) {
+            foreach ($this->get_option('fields') as $field) {
+                $this->add_field($field);
+            }
+        }            
     }
 
     /**
