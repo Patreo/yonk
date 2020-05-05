@@ -10,6 +10,9 @@ if (file_exists(dirname(__FILE__) . '/lib/cmb2/init.php')) {
     define('CMB2', FALSE);
 }
 
+require_once dirname(__FILE__) . '/lib/class-tgm-plugin-activation.php';
+require_once dirname(__FILE__) . '/required_plugins.php';
+
 if (!function_exists('Yonk_autoload')) {
     /**
      * Auto load for Yonk core framework

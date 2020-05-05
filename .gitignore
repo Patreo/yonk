@@ -1,6 +1,7 @@
 /*.php
 /*.html
 /*.txt
+web.config
 
 wp-admin/
 wp-includes/
@@ -8,5 +9,5 @@ wp-includes/
 wp-content/**/*
 wp-content/themes/YonkTheme-child/app/
 
-!wp-content/themes/YonkTheme
+!wp-content/themes/YonkTheme/**/*
 !wp-content/themes/YonkTheme-child
