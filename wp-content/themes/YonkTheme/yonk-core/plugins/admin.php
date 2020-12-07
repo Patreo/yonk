@@ -46,7 +46,7 @@ function Yonk_login_title() {
     return get_option('blogname'); 
 }
 
-add_filter('login_headertitle', 'Yonk_login_title');
+add_filter('login_headertext', 'Yonk_login_title');
 
 /**
  * Remove WordPress logo from admin bar
