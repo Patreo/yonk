@@ -1,4 +1,5 @@
 <?php
+define('YONK_REQUIRED_PLUGINS_DISABLED', true);
 
 require_once(dirname(__FILE__) . '/yonk-core/autoload.php');
 require_once(dirname(__FILE__) . '/custom-types/team.php');
@@ -76,9 +77,9 @@ add_action('widgets_init', 'Yonk_register_siderbar');
  * Hook into the 'wp_enqueue_scripts' action
  */
 function Yonk_register_scripts() {
-	Yonk_register_jquery(get_template_directory_uri() . '/js/jquery.min.js');
-	Yonk_register('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', '3.3.6');
-	Yonk_register('scripts', get_template_directory_uri() . '/js/global.js', '1.0', array('jquery', 'bootstrap'));
+	Yonk_register_jquery(get_template_directory_uri() . '/js/jquery.min.js', '3.6.0');
+	Yonk_register('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', '5.0.1');
+	Yonk_register('scripts', get_stylesheet_directory_uri() . '/js/global.js', '1.0', array('jquery', 'bootstrap'));
 
 	if (is_singular()) {
 		wp_enqueue_script('comment-reply');
@@ -92,9 +93,9 @@ add_action('wp_enqueue_scripts', 'Yonk_register_scripts');
  * Hook into the 'wp_enqueue_scripts' action
  */
 function Yonk_register_styles() {
-	Yonk_add_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', '3.3.6');
-	Yonk_add_style('site', get_template_directory_uri() . '/css/site.css', '1.0');
+	Yonk_add_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', '5.0.1');	
 	Yonk_add_style('style', get_template_directory_uri() . '/style.css', '1.0');
+	Yonk_add_style('site', get_stylesheet_directory_uri() . '/css/site.css', '1.0');
 }
 
 add_action('wp_enqueue_scripts', 'Yonk_register_styles', 0);

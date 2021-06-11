@@ -1,7 +1,8 @@
 <?php
 defined('ABSPATH') or die('No script kiddies please!');
+define('YONK_FOLDER', 'yonk-core');
 define('YONK_PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
-define('YONK_URL', get_template_directory_uri() . '//yonk-core//');
+define('YONK_URL', get_template_directory_uri() . '/' . YONK_FOLDER . '/');
 
 if (file_exists(dirname(__FILE__) . '/lib/cmb2/init.php')) {
     define('CMB2', TRUE);
@@ -11,7 +12,12 @@ if (file_exists(dirname(__FILE__) . '/lib/cmb2/init.php')) {
 }
 
 require_once dirname(__FILE__) . '/lib/class-tgm-plugin-activation.php';
-require_once dirname(__FILE__) . '/required_plugins.php';
+
+if (!defined('YONK_REQUIRED_PLUGINS_DISABLED')) {
+    if (YONK_REQUIRED_PLUGINS_DISABLED == false) {
+        require_once dirname(__FILE__) . '/required_plugins.php';
+    }
+}
 
 if (!function_exists('Yonk_autoload')) {
     /**

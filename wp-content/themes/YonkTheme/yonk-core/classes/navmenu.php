@@ -53,7 +53,7 @@ class Yonk_Nav_Menu extends Walker_Nav_Menu {
 		} else {
 			$class_names = $value = '';
 			$classes = empty($item->classes) ? array() : (array)$item->classes;
-			$classes[] = 'menu-item-' . $item->ID;
+			$classes[] = 'nav-item menu-item-' . $item->ID;
 			$class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
 			if ($args->has_children)
 				$class_names .= ' dropdown';
@@ -71,10 +71,13 @@ class Yonk_Nav_Menu extends Walker_Nav_Menu {
 			if ($args->has_children) {
 				$atts['href'] = '#';
 				$atts['data-toggle'] = 'dropdown';
-				$atts['class'] = 'dropdown-toggle';
-				$atts['aria-haspopup'] = 'true';
+				$atts['class'] = 'nav-link dropdown-toggle';
+				$atts['role'] = 'button';
+				$atts['data-bs-toggle'] = 'dropdown';
+				$atts['aria-expanded'] = 'false';
 			} else {
 				$atts['href'] = !empty($item->url) ? $item->url : '';
+				$atts['class'] = 'nav-link';
 			}
 			$atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args);
 			$attributes = '';
@@ -162,7 +165,7 @@ class Yonk_Nav_Menu extends Walker_Nav_Menu {
 			if ($menu_class)
 				$fb_output .= ' class="' . $menu_class . '"';
 			$fb_output .= '>';
-			$fb_output .= '<li><a href="' . admin_url('nav-menus.php') . '">Add a menu</a></li>';
+			$fb_output .= '<li class="nav-item"><a class="nav-link" href="' . admin_url('nav-menus.php') . '">Add a menu</a></li>';
 			$fb_output .= '</ul>';
 			if ($container)
 				$fb_output .= '</' . $container . '>';

@@ -1,5 +1,5 @@
 .login h1 a {
-    background: url(../../../img/login-logo.png) no-repeat center center;
+    background: url(../img/login-logo.png) no-repeat center center;
     background-size:  contain;
     /* make sure to replace this! */
     width: 326px;

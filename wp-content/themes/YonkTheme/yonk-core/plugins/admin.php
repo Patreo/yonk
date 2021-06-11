@@ -7,7 +7,7 @@ defined('ABSPATH') or die('No script kiddies please!');
  * 
  */
 function Yonk_admin_scripts() {
-    wp_enqueue_style('yonk-admin-css', YONK_URL . 'assets/css/custom-admin.css');
+    wp_enqueue_style('yonk-admin-css', get_stylesheet_directory_uri() . '/' . YONK_FOLDER . '/assets/css/custom-admin.css');
 }
 
 add_action('admin_enqueue_scripts', 'Yonk_admin_scripts');
@@ -19,7 +19,7 @@ add_action('admin_enqueue_scripts', 'Yonk_admin_scripts');
  * @return void
  */
 function Yonk_login_css() {
-	wp_enqueue_style('yonk-login-css', YONK_URL . 'assets/css/custom-login.css', false);
+	wp_enqueue_style('yonk-login-css', get_stylesheet_directory_uri() . '/' . YONK_FOLDER . '/assets/css/custom-login.css', false);
 }
 
 add_action('login_enqueue_scripts', 'Yonk_login_css', 10);

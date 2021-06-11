@@ -1,30 +1,27 @@
 <?php if (has_nav_menu('primary')): ?>
 
-<nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-		</div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-lightt">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
 
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
-				<?php wp_nav_menu(
-					array(
-						'theme_location' => 'primary', 
-						'container' => false, 
-						'items_wrap' => '%3$s', 
-						'walker' => new Yonk_Nav_Menu()
-					)); 
-				?>	
-			</ul>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<?php wp_nav_menu(
+						array(
+							'theme_location' => 'primary', 
+							'container' => false, 
+							'items_wrap' => '%3$s', 
+							'walker' => new Yonk_Nav_Menu()
+						)); 
+					?>	
+				</ul>
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 
 <?php endif; ?>

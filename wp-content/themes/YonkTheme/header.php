@@ -24,7 +24,7 @@
 	</head>
 <body <?php body_class(); ?>>
     <?php do_action('Yonk_body_start'); ?>
-    <div id="wrappper" class="container-fluid">
+    <div id="wrapper" class="container-fluid">
         <div class="container">
             <?php do_action('Yonk_header_before'); ?>
             <header id="header" role="banner">
